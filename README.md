@@ -1,13 +1,13 @@
 # Accumulator Problems
 
-These are exercises to help you learn how to write basic algorithms 
+These are exercises to help you learn how to write basic algorithms
 and test your understanding on programming logic.
 
 ### Setup
 
 To get started, download this project onto your machine.
 
-In your web browser, looking at index.html page that is within the assignment folder, you'll see a page that shows a bunch of failing JavaScript tests. 
+In your web browser, looking at index.html page that is within the assignment folder, you'll see a page that shows a bunch of failing JavaScript tests.
 
 ![](images/failing.png)
 
