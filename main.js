@@ -761,11 +761,6 @@ function addSignature(name, object){
   return returnObject;
 }
 
-
-
-
-
-
 /*
 ----------------------------------------
 CHALLENGE
@@ -778,12 +773,17 @@ Example:
 If you pass {name: "Will", age: 24} it should return ["name - will", "age - 24"]
 */
 
-
-
-
-
-
-
+function pairs(object){
+  let returnArray = [];
+  let keys = Object.keys(object);
+  let values = Object.values(object);
+  for(let i = 0; i < keys.length; i++){
+    let string = '';
+    string += keys[i] + ' - ' + values[i];
+    returnArray.push(string);
+  }
+  return returnArray;
+}
 
 /*
 ----------------------------------------
@@ -797,12 +797,14 @@ Example:
 If you pass {a: 1, b: 2} it should return 3
 */
 
-
-
-
-
-
-
+function sumValues(object){
+  let sum = 0;
+  let keys = Object.keys(object);
+  for(let i = 0; i< keys.length; i++){
+    sum += object[keys[i]];
+  }
+  return sum;
+}
 
 /*
 ----------------------------------------
@@ -816,18 +818,19 @@ Example:
 If you pass {1999: 4036, 2000: 7654} it should return '2000'
 */
 
-
-
-
-
-
-
-
-
-
-
-
-
+function biggestProperty(object){
+  let keys = Object.getOwnPropertyNames(object);
+  let values = Object.values(object);
+  let index = 0;
+  let highestVal = 0;
+  for(let i = 0; i< values.length; i++){
+    if(values[i] > highestVal){
+      index = i;
+      highestVal = values[i];
+    }
+  }
+  return keys[index];
+}
 
 /*
 ----------------------------------------
@@ -841,14 +844,20 @@ Example:
 If you pass {1999: 4036, 2000: 7654} and 4036, it should return '1999'
 */
 
-
-
-
-
-
-
-
-
+function keyForValue(object, value) {
+  if(!object){
+    return undefined;
+  }
+  let keys = Object.keys(object);
+  let values = Object.values(object);
+  let index = 0;
+  for(let i = 0; i < values.length; i++){
+    if(values[i] === value){
+      index = i;
+    }
+  }
+  return keys[index];
+}
 
 /*
 ----------------------------------------
@@ -862,12 +871,12 @@ Example:
 If you pass {1999: 4036, 2000: 7654} and 4036, it should return true
 */
 
-
-
-
-
-
-
-
-
-//
+function containsValue(object, value){
+  let values = Object.values(object);
+  for(let i = 0; i < values.length; i++){
+    if(values[i] === value){
+      return true;
+    }
+  }
+  return false;
+}
