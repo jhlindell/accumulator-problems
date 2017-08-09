@@ -616,7 +616,22 @@ If you pass ["Sue", "Will"] it should return "Sue and Will"
 If you pass ["Sue", "Will", "Rachel"] it should return "Sue, Will and Rachel"
 */
 
-
+function toSentence(array){
+  let returnString = '';
+  if(!array.length){
+    return returnString;
+  }
+  for(let i = 1; i <= array.length; i++){
+    returnString += array[i-1];
+    if(i < array.length-1){
+      returnString += ', ';
+    }
+    if(i === array.length-1){
+      returnString += ' and ';
+    }
+  }
+  return returnString;
+}
 /*
 ----------------------------------------
 CHALLENGE
@@ -630,12 +645,13 @@ If you pass ["Sue", "Will"] it should return "SW"
 If you pass ["Java", Script", "Object", "Notation"] it should return "JSON"
 */
 
-
-
-
-
-
-
+function acronym(array){
+  let returnString = '';
+  for(let i = 0; i< array.length; i++){
+    returnString += array[i][0];
+  }
+  return returnString;
+}
 
 /*
 ----------------------------------------
@@ -649,15 +665,18 @@ Example:
 If you pass [0,-3,2,5] it should return -3
 */
 
-
-
-
-
-
-
-
-
-
+function min(array){
+  if(!array.length){
+    return undefined;
+  }
+  let min = 100000000;
+  for(let i=0; i< array.length; i++){
+    if(array[i]< min){
+      min = array[i];
+    }
+  }
+  return min;
+}
 
 /*
 ----------------------------------------
@@ -672,12 +691,14 @@ If you pass [{id: 1, name: "Joe"}, {id: 2, name: "Sue"}] it should return {1: {i
 
 */
 
-
-
-
-
-
-
+function index(array, prop){
+  let returnObject = {};
+  for(let i = 0; i < array.length; i++){
+    let key = array[i][prop];
+    returnObject[key] = array[i];
+  }
+  return returnObject;
+}
 
 /*
 ----------------------------------------
@@ -691,12 +712,19 @@ Example:
 If you pass {id: 1, name: "Joe"} it should return {1: "id", Joe: "name"}
 */
 
-
-
-
-
-
-
+function invert(object){
+  let keys = [];
+  let values = [];
+  let returnObject = {};
+  for(key in object){
+    keys.push(key);
+    values.push(object[key]);
+  }
+  for(let i = 0; i< keys.length; i++){
+    returnObject[values[i]] = keys[i];
+  }
+  return returnObject;
+}
 
 /*
 ----------------------------------------
@@ -713,7 +741,25 @@ Example:
 If you pass {"contract": "foo"}, "Fred" it should return {"contract-signed": "foo - Fred"}
 */
 
-
+function addSignature(name, object){
+  if(!object){
+    return {};
+  }
+  let returnObject = {};
+  let keys = Object.keys(object);
+  console.log(keys);
+  let values = Object.values(object);
+  console.log(values);
+  for(let i = 0; i < keys.length; i++){
+    // console.log(keys[i]);
+    let key = keys[i] + '-signed';
+    // console.log(key);
+    let value = values[i] + ' - ' + name;
+    returnObject[key] = value;
+  }
+  // console.log(returnObject);
+  return returnObject;
+}
 
 
 
