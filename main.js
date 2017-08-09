@@ -571,12 +571,15 @@ If you pass [1,1], 1 it should return true
 If you pass [1,2], 1 it should return false
 */
 
-
-
-
-
-
-
+function every(array, value){
+  if(!array.length) return true;
+  for(let i = 0; i < array.length; i++){
+    if(array[i] !== value){
+      return false;
+    }
+  }
+  return true;
+}
 
 /*
 ----------------------------------------
@@ -591,13 +594,15 @@ If you pass [1,2], 1 it should return true
 If you pass [3,2], 1 it should return false
 */
 
-
-
-
-
-
-
-
+function some(array, value){
+  if(!array.length) return false;
+  for(let i = 0; i < array.length; i++){
+    if(array[i] === value){
+      return true;
+    }
+  }
+  return false;
+}
 /*
 ----------------------------------------
 CHALLENGE
@@ -610,17 +615,6 @@ Example:
 If you pass ["Sue", "Will"] it should return "Sue and Will"
 If you pass ["Sue", "Will", "Rachel"] it should return "Sue, Will and Rachel"
 */
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*
